@@ -1,0 +1,9 @@
+---
+- name: Configure server services
+  hosts: utm_servers
+  become: true
+  roles:
+    - ufw
+    - sshd
+    - nginx
+    - fail2ban

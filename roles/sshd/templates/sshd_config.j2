@@ -1,0 +1,7 @@
+# /etc/ssh/sshd_config - Managed by Ansible
+Port 1234
+PermitRootLogin no
+PasswordAuthentication no
+PubkeyAuthentication yes
+# その他必要な設定
+Include /etc/ssh/sshd_config.d/*.conf

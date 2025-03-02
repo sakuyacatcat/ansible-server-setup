@@ -1,0 +1,13 @@
+---
+- name: Deploy custom Fail2ban jail configuration
+  template:
+    src: jail.local.j2
+    dest: /etc/fail2ban/jail.local
+    owner: root
+    group: root
+    mode: "0644"
+
+- name: Restart Fail2ban
+  service:
+    name: fail2ban
+    state: restarted

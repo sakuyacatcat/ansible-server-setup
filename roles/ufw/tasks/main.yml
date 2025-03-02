@@ -1,0 +1,14 @@
+---
+- name: Allow required ports in UFW
+  ufw:
+    rule: allow
+    port: "{{ item.port }}"
+    proto: "{{ item.proto }}"
+  loop:
+    - { port: 1234, proto: tcp } # SSH のカスタムポート
+    - { port: 80, proto: tcp } # HTTP
+    - { port: 443, proto: tcp } # HTTPS
+
+- name: Enable UFW if not enabled
+  ufw:
+    state: enabled
